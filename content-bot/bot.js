@@ -9,7 +9,8 @@ class Bot {
   }
 
   postTweet() {
-    const question = this.getRandomQuestion(questions);
+    // const question = this.getRandomQuestion(questions);
+    const question = 'worm2?';
     this.api.post('statuses/update', {status: question})
       .then(console.log(`Successful tweet:  ${question}`))
       .catch(error => console.log(`Error occurred:  ${error.stack}`));
