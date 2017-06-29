@@ -14,6 +14,7 @@ class Bot {
   }
 }
 
-
+//node execution area
 const bot = new Bot();
-bot.watchUserTweets(userIds.content_bot1000);
+
+bot.watchUserTweets(userIds.EpicodusStudent);
