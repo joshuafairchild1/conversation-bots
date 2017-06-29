@@ -8,8 +8,9 @@ class Bot {
     this.api = new Twit(apiKeys);
   }
 
-  watchUserTweets(userId, replyType) {
-    const stream = this.api.stream('statuses/filter', {follow: userId})
+  watchUserTweets(usersArray, replyType) {
+    const users = usersArray.join()
+    const stream = this.api.stream('statuses/filter', {follow: users})
       .on('tweet', tweet => {
         if (replyType === 'answer') {
           const tweetId = tweet.id_str;
@@ -22,7 +23,7 @@ class Bot {
         else if (replyType === 'alphabetize') {
           const tweetId = tweet.id_str;
           const username = tweet.user.screen_name;
-          this.api.post('statuses/update', {in_reply_to_status_id: tweetId, status: `${this.alphabetizeTweet(tweet.text)} @${username}`})
+          this.api.post('statuses/update', {in_reply_to_status_id: tweetId, status: `${this.alphabetizeTweet(tweet.text)}. There, I alphabetized it for you! @${username}`})
             .then(console.log(`Successful tweet`))
             .catch(error => console.log(error.stack));
         }
@@ -44,5 +45,5 @@ class Bot {
 //node execution area
 const bot = new Bot();
 
-// bot.watchUserTweets(userIds.content_bot1000, 'answer');
-bot.watchUserTweets(userIds.EpicodusStudent, 'alphabetize');
+bot.watchUserTweets([userIds.content_bot1000, userIds.EpicodusStudent], 'answer');
+// bot.watchUserTweets([userIds.content_bot1000, userIds.EpicodusStudent], 'alphabetize');
