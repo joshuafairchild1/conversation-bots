@@ -17,4 +17,4 @@ class Bot {
 //node execution area
 const bot = new Bot();
 
-bot.postTweet('hello worm');
+bot.postTweet('worm test');
