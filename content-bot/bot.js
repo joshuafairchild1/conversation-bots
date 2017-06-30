@@ -2,7 +2,7 @@ const apiKeys = require('./.env').apiKeys;
 const Twit = require('twit');
 const questions = require('./questions.json');
 const proverbs = require('./proverbs.json');
-const tweetRate = 1000*70;
+const tweetRate = 1000*60;
 
 class Bot {
   constructor() {
@@ -40,7 +40,9 @@ class Bot {
   }
 }
 
-//node execution area
+  //=======================//
+ //  node execution area  //
+//=======================//
 const bot = new Bot();
 
 // bot.postProverb();
