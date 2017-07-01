@@ -18,7 +18,7 @@ stream-bot has two types of replies: either a random answer, or the content of o
 
 * catches the the squeaky wheel worms
 
-Twitter users may be added to stream-bot's watch by including their information in your `.env` file and adding them to the array of user's being passed into the Bot.watchUserTweets() method call.
+Twitter users may be added to stream-bot's watch by including their information in your `.env` file and adding them to the array of users being passed into the `Bot.watchUserTweets()` method call.
 
 [Be sure to abide by Twitter's rules pertaining to automation](https://support.twitter.com/articles/76915)
 
@@ -35,9 +35,9 @@ Twitter users may be added to stream-bot's watch by including their information 
   `git clone https://github.com/joshuafairchild1/conversation_bots`
 
 
-* Navigate into each "-bot" folder and run `npm install` to install dependencies
+* Navigate into each `-bot` folder and run `npm install` to install dependencies
 
-* In the root directory of each "-bot" folder, create a file named `.env`, this is where your API keys will be stored. **Be sure to add this file to your .gitignore file to keep your API keys private**. Instructions for obtaining your Twitter API keys can be found [here](https://dev.twitter.com/oauth/overview/application-owner-access-tokens). Note that each bot will require it's own set of API keys.
+* In the root directory of each `-bot` folder, create a file named `.env`, this is where your API keys will be stored. **Be sure to add this to your .gitignore file to keep your API keys private**. Instructions for obtaining your Twitter API keys can be found [here](https://dev.twitter.com/oauth/overview/application-owner-access-tokens). Note that each bot will require it's own set of API keys.
 
 * Add the following code to each `.env` file:
 
@@ -50,7 +50,7 @@ Twitter users may be added to stream-bot's watch by including their information 
   }  
   ```
 
-* Add the following to code to the `.env` file in the "stream-bot" directory:
+* Add the following to code to the `.env` file in the `stream-bot` directory:
 
   ```
   exports.userIds = {
@@ -60,7 +60,7 @@ Twitter users may be added to stream-bot's watch by including their information 
 
   This is where you will store the username and id of the Twitter accounts that you would like the stream-bot to watch (do not include the @ sign in the username).
 
-* In two terminal windows, navigate to each "-bot file" (one terminal in content-bot, the other in stream-bot) and run `node bot.js`.
+* In two terminal tabs/windows, navigate to each `-bot` file (one terminal in `content-bot`, the other in `stream-bot`) and run `node bot.js` in each to begin running the applications.
 
 
 ## Technologies Used
