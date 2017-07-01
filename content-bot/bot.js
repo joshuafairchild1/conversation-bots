@@ -2,41 +2,32 @@ const apiKeys = require('./.env').apiKeys;
 const Twit = require('twit');
 const questions = require('./questions.json');
 const proverbs = require('./proverbs.json');
-const tweetRate = 1000*60;
+const tweetRate = 1000*10;
 
 class Bot {
   constructor() {
     this.api = new Twit(apiKeys);
   }
 
-  postQuestion() {
-    const question = this.generateRandomItem(questions);
-    // const question = '14 worms?';
-    this.api.post('statuses/update', {status: question})
-      .then(console.log(`Successful tweet:  ${question}`))
+  postTweet(collection) {
+    const content = this.generateRandomContent(collection);
+    this.api.post('statuses/update', {status: content})
+      .then(console.log(`Successful tweet:  ${content}`))
       .catch(error => console.log(`Error occurred:  ${error.stack}`));
   }
 
-  postProverb() {
-    const proverb = this.generateRandomItem(proverbs);
-    // const proverb = "14 worms?";
-    this.api.post('statuses/update', {status: proverb})
-      .then(console.log(`Successful tweet:  ${proverb}`))
-      .catch(error => console.log(`Error occurred:  ${error.stack}`));
-  }
-
-  getRandomQuestion(collection) {
-    return collection[Math.floor(Math.random()*((collection.length-1)-0+1)+0)];
-  }
-
-  generateRandomItem(collection) {
-    const rand1 = collection[Math.floor(Math.random()*((collection.length-1)-0+1)+0)].split(" ");
-    const rand2 = collection[Math.floor(Math.random()*((collection.length-1)-0+1)+0)].split(" ");
+  generateRandomContent(collection) {
+    const rand1 = this.getRandomItem(collection).split(" ");
+    const rand2 = this.getRandomItem(collection).split(" ");
 
     const firstHalf = rand2.splice(0, Math.floor(rand2.length / 2)).join(" ");
     const secondHalf = rand1.splice(Math.floor(rand1.length / 2)).join(" ");
 
     return`${firstHalf} ${secondHalf}`;
+  }
+
+  getRandomItem(collection) {
+    return collection[Math.floor(Math.random()*((collection.length-1)-0+1)+0)]
   }
 }
 
@@ -45,8 +36,8 @@ class Bot {
 //=======================//
 const bot = new Bot();
 
-// bot.postProverb();
-// bot.postQuestion();
+// bot.postTweet(proverbs);
+// bot.postTweet(questions);
 
-setInterval(() => bot.postProverb(), tweetRate);
-// setInterval(() => bot.postQuestion(), tweetRate);
+setInterval(() => bot.postTweet(proverbs), tweetRate);
+// setInterval(() => bot.postTweet(questions), tweetRate);
