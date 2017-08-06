@@ -35,7 +35,7 @@ class Bot {
 
 
   getRandomAnswer(collection) {
-    return collection[Math.floor(Math.random()*((collection.length-1)-0+1)+0)];
+    return collection[Math.floor(Math.random()*collection.length)];
   }
 
   alphabetizeTweet(tweet) {
