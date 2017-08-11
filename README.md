@@ -20,6 +20,8 @@ Twitter users may be added to stream-bot's watch by including their information 
 
 [Be sure to abide by Twitter's rules pertaining to automation.](https://support.twitter.com/articles/76915)
 
+The bots themselves can be found at [@content_bot1000](https://twitter.com/content_bot1000) and [@stream_bot1000](https://twitter.com/stream_bot1000) on Twitter.
+
 ## Installation Requirements
 
 * You must install or have installed:
@@ -30,11 +32,11 @@ Twitter users may be added to stream-bot's watch by including their information 
 
 * Clone this repository
 
-  `git clone https://github.com/joshuafairchild1/conversation_bots`
+  `git clone https://github.com/joshuafairchild1/conversation-bots`
 
 * Navigate to the root directory and run `npm install`.
 
-* Create a file named `.env`, this is where your API keys and other sensitive information will be stored. **Be sure to add this to your .gitignore file to keep your API keys private**. Instructions for obtaining your Twitter API keys can be found [here](https://dev.twitter.com/oauth/overview/application-owner-access-tokens). Note that each bot will require it's own set of API keys.
+* Create a file named `.env` to store your API keys and other sensitive information. **Be sure to add this to your .gitignore file to keep your API keys private**. Instructions for obtaining your Twitter API keys can be found [here](https://dev.twitter.com/oauth/overview/application-owner-access-tokens). Note that each bot will require it's own set of API keys.
 
 * Add the following code to the `.env` file:
 
@@ -60,7 +62,7 @@ Twitter users may be added to stream-bot's watch by including their information 
   ```
   In the `userIds` object you will store the username and id of any Twitter accounts that you would like the stream-bot to watch (do not include the @ sign in the username). [Here](https://tweeterid.com/) is a free service that can provide you with a Twitter user's id.
 
-* Run `node app.js` to begin running the application.
+* Run `node app.js` to start the application.
 
 
 ## Technologies Used
